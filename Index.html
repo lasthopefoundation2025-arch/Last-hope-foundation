@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Last Hope Foundation – Helping Children in Liberia</title>
+<meta name="description" content="Last Hope Foundation is a youth-led NGO helping children, families, and people with disabilities in Liberia through education, community programs, and support.">
+<meta name="keywords" content="NGO, Liberia, children, community, charity, foundation, volunteer, support">
+<meta name="author" content="Last Hope Foundation">
+
+<style>
+html { scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background: linear-gradient(to bottom, #fff4e6, #ffe8cc);
+  color:#333;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* NAVIGATION */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#ff8c42;
+  padding:10px 20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 6px rgba(0,0,0,.1);
+}
+.logo{color:white;font-weight:bold;font-size:22px;}
+.menu-icon{
+  font-size:22px;
+  padding:5px 10px;
+  background:rgba(255,255,255,.3);
+  border-radius:5px;
+  color:white;
+  display:none;
+  cursor:pointer;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:15px;
+}
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+}
+.nav-links a:hover{color:#fff9c4;}
+
+@media(max-width:768px){
+  .menu-icon{display:block;}
+  .nav-links{
+    position:fixed;
+    top:0;right:-230px;
+    width:230px;height:100%;
+    background:#ff8c42;
+    flex-direction:column;
+    padding-top:60px;
+    transition:.3s;
+    z-index:10000;
+  }
+  .nav-links.show{right:0;}
+  .nav-links a{padding:15px;display:block;}
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+  background: linear-gradient(to bottom right, #ff8c42, #ffa65c);
+  color:white;
+  border-radius:0 0 20px 20px;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+.hero-img{width:150px;margin-bottom:20px;}
+.hero h1, .hero p, .hero button{
+  opacity:0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+.hero h1{animation-delay:0.3s;}
+.hero p{animation-delay:0.6s;}
+.hero button{animation-delay:0.9s;}
+.hero h1{font-size:32px;margin:10px 0;}
+.hero p{font-size:18px;margin-bottom:20px;}
+.hero button{
+  padding:12px 25px;
+  background:#ffb580;
+  border:none;
+  color:white;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:.3s;
+}
+.hero button:hover{background:#ffa65c; transform:translateY(-2px);}
+@keyframes fadeUp{
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* VIDEO */
+.video-box{
+  max-width:800px;
+  margin:40px auto;
+  padding:0 15px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+video{width:100%; display:block;}
+
+/* SECTIONS */
+section{padding:60px 20px;}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.card{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.card img{
+  width:100%;height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+.card h3{margin-top:0;text-align:center;color:#ff8c42;}
+
+/* ABOUT */
+.about-section{
+  max-width:1200px;
+  margin:40px auto;
+  padding:30px;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  display:none; /* hidden initially */
+  transition:.5s;
+}
+.about-section h2{text-align:center;margin-bottom:25px;color:#ff8c42;}
+.about-text p{margin-bottom:15px; line-height:1.6; text-align:justify;}
+.about-main{
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:20px; 
+  align-items:center; 
+  justify-content:center;
+}
+.about-image img{
+  width:100%;
+  max-width:300px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+.learn-more-content{
+  display:none;
+  margin-top:20px;
+  padding:15px;
+  background:#fff4e6; /* humanitarian color */
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  opacity:0;
+  transition: all 0.5s ease;
+}
+.learn-more-content.visible{opacity:1;}
+.learn-more-content img{
+  width:200px;
+  display:block;
+  margin:0 auto 10px auto;
+  border-radius:12px;
+}
+.learn-btn{
+  display:block;
+  margin:25px auto 0;
+  padding:12px 25px;
+  background:#ff8c42;
+  border:none;
+  color:white;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:.3s;
+}
+.learn-btn:hover{background:#ffa65c; transform:translateY(-2px);}
+
+/* VOLUNTEER FORM */
+#volunteerForm{
+  display:none;
+  max-width:600px;
+  margin:25px auto;
+  background: linear-gradient(to bottom right, #ffe8cc, #fff4e6);
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  transition:.5s;
+}
+#volunteerForm form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+#volunteerForm input,#volunteerForm textarea, #volunteerForm select{
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+#volunteerForm input:focus,#volunteerForm textarea:focus, #volunteerForm select:focus{
+  outline:none;
+  border:1px solid #ff8c42;
+  transform: translateY(-2px);
+  transition:0.3s;
+}
+#volunteerForm .contact-btn{
+  padding:12px;
+  background:#ff8c42;
+  border:none;
+  color:white;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:.3s;
+}
+#volunteerForm .contact-btn:hover{background:#ffa65c; transform:translateY(-2px);}
+
+/* CONTACT */
+.contact{
+  max-width:600px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+.contact form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+.contact input,.contact textarea{
+  padding:12px;border-radius:8px;border:1px solid #ccc;
+}
+.contact-btn{
+  padding:12px;
+  background:#ff8c42;
+  border:none;
+  color:white;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:.3s;
+}
+.contact-btn:hover{background:#ffa65c; transform:translateY(-2px);}
+.emailNote{text-align:center;margin-top:15px;color:#555;}
+
+/* DONATE SECTION CENTERED */
+#donate{text-align:center;}
+#donate button{
+  margin-top:20px;
+  padding:12px 25px;
+  background:#ff8c42;
+  border:none;
+  color:white;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:.3s;
+}
+#donate button:hover{background:#ffa65c; transform:translateY(-2px);}
+
+/* DONATE MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:2000;
+}
+.modal-content{
+  background:white;
+  max-width:400px;
+  margin:15% auto;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+}
+.close{
+  float:right;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  background:#ff8c42;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-weight:bold;
+  box-shadow:0 -4px 6px rgba(0,0,0,.1);
+}
+
+/* FLOATING SOCIAL */
+.floating-social{
+  position: fixed;
+  right:20px;
+  bottom:50px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  z-index:10000;
+}
+.floating-social a img{
+  width:50px;height:50px;
+  border-radius:50%;
+  box-shadow:0 2px 6px rgba(0,0,0,.3);
+  transition: transform .3s;
+}
+.floating-social a img:hover{transform:scale(1.2) rotate(-5deg);}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">Last Hope Foundation</div>
+  <div class="menu-icon" id="menuToggle">&#9776;</div>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#" id="aboutLink">About</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#" id="volunteerLink">Volunteer</a></li>
+    <li><a href="#donate">Donate</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero container">
+    <img src="Logo.jpg" class="hero-img">
+    <h1>Together, We Can Restore Hope</h1>
+    <p>Helping children, families, and people with disabilities in Liberia.</p>
+    <button onclick="openModal()">Donate Now</button>
+  </div>
+  <div class="video-box container">
+    <video controls>
+      <source src="Story.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="aboutSection" class="about-section container">
+  <h2>About Us</h2>
+  <div class="about-main">
+    <div class="about-image">
+      <img src="About.jpg" alt="About Image">
+    </div>
+    <div class="about-text">
+      <p>Last Hope Foundation is dedicated to improving the lives of children, families, and people with disabilities in Liberia through education and community programs.</p>
+      <p>Our mission is to provide hope, care, and resources for a better tomorrow. We believe every child and family deserves an opportunity to thrive.</p>
+      <button class="learn-btn" id="learnMoreBtn">Learn More</button>
+    </div>
+  </div>
+  <div class="learn-more-content" id="learnMoreContent">
+    <div style="text-align:center; margin-bottom:15px;">
+      <img src="Founder.jpg" alt="Founder Image">
+    </div>
+    <p>James K Dargbeh is the Founder and Executive Director of the Last Hope Foundation, a youth-led organization dedicated to inspiring change, supporting vulnerable communities, and creating opportunities for children across Liberia. As a visionary young leader, James is passionate about community development, education, and youth empowerment. He oversees programs, partnerships, and strategic initiatives that drive the organization’s mission forward. His commitment to service and his belief in creating lasting impact continue to shape the foundation’s work and growth.</p>
+  </div>
+</section>
+
+<!-- VOLUNTEER FORM -->
+<div id="volunteerForm" class="container">
+  <form action="mailto:lasthopefoundation2025@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="fullName" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="phone" placeholder="Phone Number" required>
+    <input type="date" name="dob" placeholder="Date of Birth">
+    <select name="gender">
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+      <option value="prefer_not">Prefer not to say</option>
+    </select>
+    <input type="text" name="city" placeholder="City / Location" required>
+    <select name="hearAbout">
+      <option value="">How did you hear about us?</option>
+      <option value="social">Social Media</option>
+      <option value="friend">Friend</option>
+      <option value="website">Website</option>
+      <option value="other">Other</option>
+    </select>
+    <p>Areas of Interest:</p>
+    <label><input type="checkbox" name="interest" value="Education"> Education</label>
+    <label><input type="checkbox" name="interest" value="Community"> Community Support</label>
+    <label><input type="checkbox" name="interest" value="Food"> Food Distribution</label>
+    <label><input type="checkbox" name="interest" value="Media"> Media & Communications</label>
+    <label><input type="checkbox" name="interest" value="Fundraising"> Fundraising</label>
+    <label><input type="checkbox" name="interest" value="Events"> Events</label>
+    <label><input type="checkbox" name="interest" value="Other"> Other</label>
+    <select name="availability" required>
+      <option value="">Availability</option>
+      <option value="weekdays">Weekdays</option>
+      <option value="weekends">Weekends</option>
+      <option value="both">Both</option>
+      <option value="specific">Specific Times</option>
+    </select>
+    <textarea name="motivation" placeholder="Why do you want to volunteer?" rows="4" required></textarea>
+    <textarea name="experience" placeholder="Previous Volunteer Experience (optional)" rows="3"></textarea>
+    <label><input type="checkbox" name="consent" required> I agree to allow Last Hope Foundation to process my information for volunteer purposes.</label>
+    <button class="contact-btn" type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <h2 style="text-align:center;color:#ff8c42;">Our Activities</h2>
+  <div class="cards">
+    <div class="card"><img src="First.jpg"><h3>Food Distribution</h3></div>
+    <div class="card"><img src="Second.jpg"><h3>Community Support</h3></div>
+    <div class="card"><img src="Myer.jpg"><h3>Myer Faith Tweh--
+  Media Director of Last Hope Foundation</pMedia></h3 ></div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate">
+  <h2>Donate</h2>
+  <button onclick="openModal()">Donate</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form action="mailto:lasthopefoundation2025@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Message" required></textarea>
+    <button class="contact-btn">Send Message</button>
+  </form>
+  <p class="emailNote">Messages will be sent to <strong>lasthopefoundation2025@gmail.com</strong></p>
+</section>
+
+<!-- DONATE MODAL -->
+<div class="modal" id="donateModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3>Donate Via Mobile Money</h3>
+    <p>📱 0770156161</p>
+    <p>📱 0888094027</p>
+    <p><strong>Thank you for supporting hope ❤️</strong></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Last Hope Foundation | All Rights Reserved
+</footer>
+
+<!-- FLOATING SOCIAL -->
+<div class="floating-social">
+  <a href="https://www.facebook.com/profile.php?id=61580092512420" target="_blank"><img src="facebook.jpg" alt="Facebook"></a>
+  <a href="https://wa.me0770156161" target="_blank"><img src="whatsapp.jpg" alt="WhatsApp"></a>
+</div>
+
+<script>
+// MOBILE MENU
+const menuToggle=document.getElementById('menuToggle');
+const navMenu=document.getElementById('navMenu');
+menuToggle.addEventListener('click',()=>navMenu.classList.toggle('show'));
+document.querySelectorAll('.nav-links a').forEach(link=>{
+  link.addEventListener('click',()=>navMenu.classList.remove('show'));
+});
+
+// ABOUT SECTION
+const aboutLink=document.getElementById('aboutLink');
+const aboutSection=document.getElementById('aboutSection');
+aboutLink.addEventListener('click',e=>{
+  e.preventDefault();
+  aboutSection.style.display='block';
+  aboutSection.scrollIntoView({behavior:'smooth'});
+  navMenu.classList.remove('show');
+});
+
+// LEARN MORE
+const learnMoreBtn=document.getElementById('learnMoreBtn');
+const learnMoreContent=document.getElementById('learnMoreContent');
+learnMoreBtn.addEventListener('click',()=>{
+  if(learnMoreContent.style.display==='block'){
+    learnMoreContent.style.display='none';
+    learnMoreContent.classList.remove('visible');
+  }else{
+    learnMoreContent.style.display='block';
+    setTimeout(()=>learnMoreContent.classList.add('visible'),50);
+    learnMoreContent.scrollIntoView({behavior:'smooth'});
+  }
+});
+
+// VOLUNTEER FORM
+const volunteerLink=document.getElementById('volunteerLink');
+const volunteerForm=document.getElementById('volunteerForm');
+volunteerLink.addEventListener('click',e=>{
+  e.preventDefault();
+  volunteerForm.style.display='block';
+  volunteerForm.scrollIntoView({behavior:'smooth'});
+  navMenu.classList.remove('show');
+});
+
+// DONATE MODAL
+const donateModal=document.getElementById('donateModal');
+function openModal(){donateModal.style.display='block';}
+function closeModal(){donateModal.style.display='none';}
+window.addEventListener('click',e=>{if(e.target===donateModal) closeModal();});
+</script>
+</body>
+</html>
