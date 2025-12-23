@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Last Hope Foundation – Helping Children in Liberia</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta name="description" content="Last Hope Foundation is a youth-led NGO supporting children, families, and people with disabilities in Liberia through education and community programs.">
+<meta name="keywords" content="NGO Liberia, charity, children, volunteer, donate">
+<meta name="author" content="Last Hope Foundation">
+
+<style>
+:root{
+  --primary:#ff8c42;
+  --accent:#ffa65c;
+  --light:#fff4e6;
+  --dark:#333;
+}
+
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  color:var(--dark);
+  background:#fff;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  z-index:1000;
+}
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:var(--primary);
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-links a{
+  text-decoration:none;
+  font-weight:600;
+  color:#333;
+}
+.nav-links a:hover{color:var(--primary);}
+.menu-icon{display:none;font-size:25px;cursor:pointer;}
+
+@media(max-width:768px){
+  .menu-icon{display:block;}
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-250px;
+    height:110%;
+    width:220px;
+    background:#fff;
+    flex-direction:column;
+    padding-top:80px;
+    transition:.6s;
+  }
+  .nav-links.show{right:0;}
+  .nav-links a{padding:15px; display:block;}
+.hero {
+  background-image: url('homepic.jpg'); /* Your image file */
+  background-size: cover;                /* Cover entire section */
+  background-#f3e9e9: center;           /* Center the image */
+  background-repeat: no-repeat;          /* Don’t repeat the image */
+  padding: 90px 20px;
+  text-align: center;
+  position: relative;
+  color: #fff;                           /* Make text visible on image */
+}
+.hero h1,
+.hero p {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* Optional: makes text readable */
+}
+
+.hero img{width:140px;margin-bottom:20px;}
+.hero h1{
+  font-size:40px;
+  color:var(--primary);
+}
+.hero p{
+  max-width:700px;
+  margin:15px auto 30px;
+  font-size:18px;
+}
+.hero button{
+  padding:14px 30px;
+  background:var(--primary);
+  border:none;
+  color:#fff;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
+.hero button:hover{background:#e76b1d;}
+
+/* VIDEO BOX */
+.video-box{
+  max-width:800px;
+  margin:40px auto;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+video{width:100%;}
+
+/* SECTIONS */
+section{padding:80px 0;}
+section h2{
+  text-align:center;
+  color:var(--primary);
+  font-size:32px;
+  margin-bottom:40px;
+}
+
+/* ABOUT */
+.about{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  align-items:center;
+}
+.about img{
+  max-width:320px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+/* MISSION / VISION / WHAT WE DO */
+.mvw{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:space-between;
+  margin-top:50px;
+}
+.mvw > div{
+  flex:1;
+  min-width:280px;
+  background:#fff4e6;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.mvw h3{color:var(--primary);}
+.what-do{
+  margin-top:40px;
+}
+.what-do ul{
+  list-style:disc;
+  padding-left:25px;
+  line-height:1.8;
+}
+.what-do .video-box{margin-top:20px;}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.card h3{
+  text-align:center;
+  padding:15px;
+  color:var(--primary);
+}
+
+/* FORMS */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+input,textarea,select{
+  padding:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+button.submit{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+button.submit:hover{background:#e76b1d;}
+
+/* VOLUNTEER FORM BOX */
+#volunteerForm{
+  display:none;
+  max-width:700px;
+  margin:40px auto;
+  background:var(--light);
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+/* MODALS */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:2000;
+}
+.modal-content{
+  background:#fff;
+  max-width:800px;
+  margin:10% auto;
+  padding:30px;
+  border-radius:12px;
+  text-align:left;
+  position:relative;
+}
+.close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  font-size:24px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:25px;
+}
+
+/* FOUNDER INLINE */
+#founderSection{
+  display:none;
+  margin-top:30px;
+  padding:20px;
+  background:#fff4e6;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Last Hope Foundation</div>
+  <div class="menu-icon" id="menuToggle">&#9776;</div>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#donate">Donate</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+    <!-- ✅ ADDED: News link -->
+    <li><a href="news.html">News</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <img src="Logo.jpg" alt="Logo">
+  <h1>Together, We Can Restore Hope</h1>
+  <p>Helping children, families, and people with disabilities in Liberia.</p>
+  <button onclick="openDonate()">Donate Now</button>
+</section>
+
+<!-- VIDEO INTRO -->
+<div class="video-box">
+  <video controls>
+    <source src="Story.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <h2>About Us</h2>
+  <div class="container about">
+    <img src="About.jpg" alt="About Last Hope Foundation">
+    <div>
+      <p>Last Hope Foundation is a youth-led organization dedicated to improving
+      the lives of children, families, and people with disabilities in Liberia
+      through education, advocacy, and community programs.</p>
+
+      <h3 style="margin-top:20px;color:var(--primary);">Our Area</h3>
+      <p>We focus on humanitarian support, youth empowerment, education,
+      and community development to restore hope and dignity.</p>
+    </div>
+  </div>
+
+  <!-- MISSION / VISION / WHAT WE DO -->
+  <div class="container mvw">
+    <div>
+      <h3>Our Mission</h3>
+      <p>To restore hope and improve the quality of life for vulnerable individuals and communities through compassion-driven humanitarian service, advocacy, and sustainable support.</p>
+    </div>
+    <div>
+      <h3>Our Vision</h3>
+      <p>A society where no child, person living with a disability, or vulnerable individual is left behind — where hope is restored, dignity is protected, and lives are transformed.</p>
+    </div>
+  </div>
+
+  <div class="container what-do">
+    <h3 style="color:var(--primary); text-align:center; margin-bottom:20px;">What We Do</h3>
+    <ul>
+      <li>Food and basic needs distribution</li>
+      <li>Support for people living with disabilities</li>
+      <li>Children-focused outreach programs</li>
+      <li>Community awareness and advocacy</li>
+      <li>Faith-inspired humanitarian service</li>
+    </ul>
+
+    <!-- Video area under "What We Do" -->
+    <div class="video-box">
+      <video controls>
+        <source src="play.mp4"type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- FOUNDER INLINE TOGGLE -->
+  <div class="container" style="margin-top:50px; text-align:center;">
+    <button id="toggleFounder" class="submit">Read About the Founder</button>
+
+    <div id="founderSection">
+      <div style="display:flex; flex-wrap:wrap; gap:30px; align-items:flex-start;">
+        <div style="flex:1; min-width:220px; text-align:center;">
+          <img src="Founder.jpg" alt="James K. Dargbeh" style="width:220px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,.2);">
+        </div>
+        <div style="flex:2; min-width:260px; text-align:left;">
+          <h2 style="margin-top:0; color:var(--primary);">Founder & Executive Director</h2>
+          <h3 style="margin-bottom:5px;">James K. Dargbeh</h3>
+          <p style="font-weight:600;">Founder & Executive Director, Last Hope Foundation</p>
+          <p>James K. Dargbeh is a passionate humanitarian, youth leader, and advocate for vulnerable communities in Liberia. Driven by faith, compassion, and firsthand exposure to the struggles of marginalized people, he founded the Last Hope Foundation to restore hope and create meaningful change.</p>
+          <p>Beyond humanitarian work, James has demonstrated strong leadership and academic excellence. He served as Assistant Captain of the Liberia National High School Quizzing Team (2024/2025) and was recognized as the Outstanding Young Leader of the Year.</p>
+          <p>He also emerged as the Best History Quizzer in Liberia, an award presented by Educate the Next Generation in collaboration with the Ministry of Education.</p>
+          <p>As Executive Director, James provides vision, leadership, and coordination for the foundation’s outreach and community programs. He is committed to long-term impact, with aspirations to expand the foundation’s work into sustainable initiatives such as education support and an orphanage home in the future.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <h2>Our Activities</h2>
+  <div class="container cards">
+    <div class="card"><img src="First.jpg"><h3>Food Distribution</h3></div>
+    <div class="card"><img src="Second.jpg"><h3>Community Support</h3></div>
+    <div class="card"><img src="third2.jpg"><h3>Media Outreach</h3></div>
+  </div>
+</section>
+
+<!-- Media -->
+<section id="gallery">
+  <h2>Media Team</h2>
+  <div class="container cards">
+    <div class="card"><img src="myer.jpg"><h3>Media Director <br>Myer F. Twen</h3></div>
+    <div class="card"><img src="sadayah.jpg"><h3>Sadayah I. Davis </h3></div>
+    <div class="card"><img src="open.jpg"><h3></h3></div>
+  </div>
+</section>
+
+<!-- VOLUNTEER SECTION -->
+<section id="volunteer">
+  <h2>Volunteer With Us</h2>
+  <div class="container" style="text-align:center;max-width:700px;">
+    <p>Be part of a movement bringing hope and opportunity to communities across Liberia.</p>
+    <button onclick="openVolunteerForm()" class="submit">Become a Volunteer</button>
+  </div>
+</section>
+
+<!-- FULL VOLUNTEER FORM -->
+<div id="volunteerForm">
+  <h3 style="text-align:center;color:var(--primary);">Volunteer Application Form</h3>
+  <form action="mailto:lasthopefoundation2025@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="fullName" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="phone" placeholder="Phone Number" required>
+    <input type="date" name="dob">
+
+    <select name="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+      <option>Prefer not to say</option>
+    </select>
+
+    <input type="text" name="city" placeholder="City / Location" required>
+
+    <select name="hearAbout">
+      <option value="">How did you hear about us?</option>
+      <option>Social Media</option>
+      <option>Friend</option>
+      <option>Website</option>
+      <option>Other</option>
+    </select>
+
+    <textarea name="motivation" rows="4" placeholder="Why do you want to volunteer?" required></textarea>
+    <textarea name="experience" rows="3" placeholder="Previous volunteer experience (optional)"></textarea>
+
+    <label>
+      <input type="checkbox" required> I agree to allow Last Hope Foundation to process my information.
+    </label>
+
+    <button class="submit">Submit Application</button>
+  </form>
+</div>
+
+<!-- DONATE -->
+<section id="donate">
+  <h2>Donate</h2>
+  <div class="container" style="text-align:center;">
+    <button onclick="openDonate()" class="submit">Donate via Mobile Money</button>
+  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A new web page">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="favicon.ico">
+    <title>Document</title>
+    <style>
+        /* Minimal CSS Reset */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; background: #fafbfc; color: #222; min-height: 100vh; line-height: 1.6; }
+    </style>
+</head>
+<body>
+        </section>
+        
+</body>
+</html>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="container">
+    <form action="mailto:lasthopefoundation2025@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button class="submit">Send Message</button>
+    </form>
+
+    <!-- ✅ Added Facebook & WhatsApp -->
+    <div style="margin-top:30px;text-align:center;">
+      <p><strong>Connect with us</strong></p>
+      <p> <a href="https://www.facebook.com/LastHopeFoundation" target="_blank">Facebook</a></p>
+      <p> <a href="https://wa.me/231770156161" target="_blank">WhatsApp</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE MODAL -->
+<div class="modal" id="donateModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeDonate()">×</span>
+    <h3>Donate Via Mobile Money</h3>
+    <p>📱 0770156161</p>
+    <p>📱 0888094027</p>
+  </div>
+</div>
+
+<footer>
+  © 2025 Last Hope Foundation | All Rights Reserved
+</footer>
+
+<script>
+// MENU
+const menuToggle=document.getElementById("menuToggle");
+const navMenu=document.getElementById("navMenu");
+navMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navMenu.classList.remove("show")));
+menuToggle.addEventListener("click",()=>navMenu.classList.toggle("show"));
+
+// VOLUNTEER FORM
+function openVolunteerForm(){
+  const form=document.getElementById("volunteerForm");
+  form.style.display="block";
+  form.scrollIntoView({behavior:"smooth"});
+}
+
+// DONATE MODAL
+const donateModal=document.getElementById("donateModal");
+function openDonate(){donateModal.style.display="block";}
+function closeDonate(){donateModal.style.display="none";}
+
+// FOUNDER TOGGLE
+const toggleFounderBtn=document.getElementById("toggleFounder");
+const founderSection=document.getElementById("founderSection");
+toggleFounderBtn.addEventListener("click",()=>{
+  if(founderSection.style.display==="none"){
+    founderSection.style.display="block";
+    founderSection.scrollIntoView({behavior:"smooth"});
+    toggleFounderBtn.textContent="Hide Founder Info";
+  } else {
+    founderSection.style.display="none";
+    toggleFounderBtn.textContent="Read About the Founder";
+  }
+});
+</script>
+
+</body>
+</html>
